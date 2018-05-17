@@ -7,7 +7,7 @@ If there are questions about the work in this repository, you can contact me via
 ***
 
 ### Files
- * simulator_graphgame.py:
+#### simulator_graphgame.py:
 - The simulator for <b>group formation game with the probability matching model</b> as specified in <i>"Bhattacharya, K., Takko, T., Monsivais, D., & Kaski, K. (2018). Role of risk and information in a group formation experiment on a small-world network."</i>
 - The script is used to simulate a graph game with bots and to visualize and animate the results of given number of runs with a given number of players in a given network.
 ***
