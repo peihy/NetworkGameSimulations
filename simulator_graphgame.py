@@ -104,8 +104,6 @@ class Player(object):
         THE REQUEST
         '''
         requestables = []
-        wr=0
-        cs = 100000
         for n in nx.all_neighbors(self.group.network, self.id):
             neib = self.group.get_player_by_id(n)
             '''
@@ -146,7 +144,6 @@ class Player(object):
             dsum,nsum=1,0
             for n in requestables:
                 dsum+=n[1]
-            #print((dsum-1)/(dsum))
             r2 = np.random.rand()
             random.shuffle(requestables)
             chp=0
@@ -157,9 +154,7 @@ class Player(object):
                 else:
                     chp+=n[1]
 
-            '''
-            SOME BUG WITH ID 30 FIX
-            '''
+
             if self.selection != 0:
                 self.group.get_player_by_id(self.selection).requested = True
 
@@ -611,7 +606,6 @@ class Group(object):
 def game(ai, games, shuffle, info_vis, info_clust, noisyness, threshold, net, edgeshuffle, params, animate):
     '''
     function game gathers the results from each game
-    param: ai (Boolean, makes bots either greedy or noisy)
     param: games (Int, number of games to be played)
     param: shuffle (Boolean, shuffles the initial colors)
     param: info_vis, info_clust (Boolean, allows the bots information of second neighbor(vis) or their local cluster sizes (clust))
@@ -870,7 +864,11 @@ param 8: Noisyness as percents, used when previous parameter is True (Legacy and
 param 9: The parameters for the model as described previously in the required format.
 param 10: Whether the game will be viasualized as an animation
 '''
-run=clust_param(250, 0.6, "C2", False, "Experimental parameters ", False, False, 100, prms, False)
+'''
+To simulate the game as done in the manuscript, use the following call for a run on games. Only the model is used
+for autonomous agents and the network is the same type (C2)
+'''
+run=clust_param(250, 0.6, "C2", False, "Human-like parameters ", False, False, 100, prms, False)
 
 '''
 Finally make the plots visible for evaluation
