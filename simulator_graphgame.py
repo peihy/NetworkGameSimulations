@@ -91,10 +91,7 @@ class Player(object):
             r2 = np.random.rand()
             if (dsum-1)/dsum>=r2:
                 self.accepted = random.choice(requestors)[0]
-                for rb in requestors:
-                    if rb[1]>chp:
-                        chp=rb[1]
-                        self.accepted=rb[0]
+                
 
         self.requested = False
 
